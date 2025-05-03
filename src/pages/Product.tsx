@@ -3,9 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import InViewAnimation from "@/components/ui/InViewAnimation";
 import { Button } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { 
+  ScrollArea, 
+  ScrollBar 
+} from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import IceCreamCustomizer from "@/components/product/IceCreamCustomizer";
 
 const Product = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -15,22 +17,27 @@ const Product = () => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
   
-  return <>
+  return (
+    <>
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-softepy-cream to-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{
-        opacity: 0.05,
-        backgroundImage: "url('https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        transform: `translateY(${scrollY * 0.15}px)`
-      }}></div>
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            opacity: 0.05,
+            backgroundImage: "url('https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            transform: `translateY(${scrollY * 0.15}px)`,
+          }}
+        ></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -52,13 +59,20 @@ const Product = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <InViewAnimation animation="fade-in-left">
               <div className="relative">
-                <div className="rounded-3xl overflow-hidden shadow-2xl h-[500px]" style={{
-                backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-                transform: `translateY(${Math.sin(scrollY * 0.003) * 5}px)`
-              }}>
+                <div 
+                  className="rounded-3xl overflow-hidden shadow-2xl h-[500px]"
+                  style={{
+                    backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+                    transform: `translateY(${Math.sin(scrollY * 0.003) * 5}px)`,
+                  }}
+                >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-72 h-72 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <img src="/lovable-uploads/e6e97665-3aae-4a0a-8c57-314373ec38e3.png" alt="Softepy Logo" className="w-56 h-56 object-contain animate-premium-float" />
+                      <img 
+                        src="/lovable-uploads/e6e97665-3aae-4a0a-8c57-314373ec38e3.png"
+                        alt="Softepy Logo" 
+                        className="w-56 h-56 object-contain"
+                      />
                     </div>
                   </div>
                 </div>
@@ -83,10 +97,19 @@ const Product = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {["Fully automated operation", "Self-cleaning technology", "Touchscreen interface", "Contactless payments", "Remote monitoring", "Premium ingredients"].map((feature, index) => <div key={index} className="flex items-center">
+                  {[
+                    "Fully automated operation",
+                    "Self-cleaning technology",
+                    "Touchscreen interface",
+                    "Contactless payments",
+                    "Remote monitoring",
+                    "Premium ingredients"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center">
                       <div className="w-4 h-4 rounded-full bg-softepy-gold mr-3"></div>
                       <span>{feature}</span>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
             </InViewAnimation>
@@ -361,32 +384,42 @@ const Product = () => {
           <InViewAnimation animation="fade-in-up" delay={0.2}>
             <ScrollArea className="w-full">
               <div className="flex space-x-6 py-6">
-                {[{
-                base: "Vanilla",
-                syrup: "Chocolate",
-                topping: "Brownie Crumbs",
-                color: "bg-gradient-to-b from-amber-50 to-amber-100"
-              }, {
-                base: "Strawberry",
-                syrup: "Nutella",
-                topping: "Chocolate Chips",
-                color: "bg-gradient-to-b from-rose-100 to-rose-200"
-              }, {
-                base: "Mixed",
-                syrup: "Strawberry",
-                topping: "Nuts",
-                color: "bg-gradient-to-b from-purple-50 to-pink-100"
-              }, {
-                base: "Vanilla",
-                syrup: "Nutella",
-                topping: "Nuts",
-                color: "bg-gradient-to-b from-amber-50 to-amber-200"
-              }, {
-                base: "Strawberry",
-                syrup: "Chocolate",
-                topping: "Chocolate Chips",
-                color: "bg-gradient-to-b from-red-50 to-red-100"
-              }].map((flavor, index) => <div key={index} className={`luxury-card min-w-[300px] h-[350px] flex flex-col ${flavor.color}`}>
+                {[
+                  {
+                    base: "Vanilla",
+                    syrup: "Chocolate",
+                    topping: "Brownie Crumbs",
+                    color: "bg-gradient-to-b from-amber-50 to-amber-100"
+                  },
+                  {
+                    base: "Strawberry",
+                    syrup: "Nutella",
+                    topping: "Chocolate Chips",
+                    color: "bg-gradient-to-b from-rose-100 to-rose-200"
+                  },
+                  {
+                    base: "Mixed",
+                    syrup: "Strawberry",
+                    topping: "Nuts",
+                    color: "bg-gradient-to-b from-purple-50 to-pink-100"
+                  },
+                  {
+                    base: "Vanilla",
+                    syrup: "Nutella",
+                    topping: "Nuts",
+                    color: "bg-gradient-to-b from-amber-50 to-amber-200"
+                  },
+                  {
+                    base: "Strawberry",
+                    syrup: "Chocolate",
+                    topping: "Chocolate Chips",
+                    color: "bg-gradient-to-b from-red-50 to-red-100"
+                  }
+                ].map((flavor, index) => (
+                  <div 
+                    key={index} 
+                    className={`luxury-card min-w-[300px] h-[350px] flex flex-col ${flavor.color}`}
+                  >
                     <div className="flex-grow flex items-center justify-center p-6">
                       <div className="w-32 h-32 rounded-full bg-white/40 backdrop-blur-sm flex items-center justify-center">
                         <div className="w-24 h-24 rounded-full bg-white/60 flex items-center justify-center">
@@ -410,7 +443,8 @@ const Product = () => {
                         </div>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
               <ScrollBar orientation="horizontal" />
             </ScrollArea>
@@ -420,22 +454,6 @@ const Product = () => {
               </p>
             </div>
           </InViewAnimation>
-          
-          {/* Ice Cream Customizer Component */}
-          <div className="mt-16">
-            <div className="max-w-3xl mx-auto text-center mb-8">
-              <InViewAnimation animation="fade-in-up">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                  Customize Your <span className="gold-text">Soft Serve</span>
-                </h3>
-                <p className="text-gray-600">
-                  Try different flavor and topping combinations to see what your Softepy creation could look like.
-                </p>
-              </InViewAnimation>
-            </div>
-            
-            <IceCreamCustomizer />
-          </div>
         </div>
       </section>
 
@@ -466,6 +484,8 @@ const Product = () => {
           </div>
         </div>
       </section>
-    </>;
+    </>
+  );
 };
+
 export default Product;

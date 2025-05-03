@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import InViewAnimation from "@/components/ui/InViewAnimation";
@@ -342,7 +343,7 @@ const Franchise = () => {
       </section>
 
       {/* Franchise Process */}
-      <section className="py-20 bg-gray-50 overflow-hidden">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <InViewAnimation animation="fade-in-up">
@@ -355,73 +356,74 @@ const Franchise = () => {
             </InViewAnimation>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            {/* Vertical Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-softepy-gold/20 transform -translate-x-1/2" />
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="hidden md:block absolute left-1/2 top-12 bottom-0 w-1 bg-softepy-gold/30 -translate-x-1/2"></div>
             
-            {[
-              {
-                step: "01",
-                title: "Initial Inquiry",
-                description: "Fill out our franchise application form with your details and business expectations."
-              },
-              {
-                step: "02",
-                title: "Consultation",
-                description: "Meet with our franchise team to discuss opportunities, investment, and answer your questions."
-              },
-              {
-                step: "03",
-                title: "Location Assessment",
-                description: "We'll help you evaluate potential locations to maximize visibility and foot traffic."
-              },
-              {
-                step: "04",
-                title: "Agreement & Payment",
-                description: "Sign the franchise agreement and make the initial investment payment."
-              },
-              {
-                step: "05",
-                title: "Setup & Installation",
-                description: "Our team handles the delivery, installation, and testing of your vending machine."
-              },
-              {
-                step: "06",
-                title: "Training & Launch",
-                description: "Receive comprehensive training on machine operations, maintenance, and business strategies."
-              }
-            ].map((step, index) => (
-              <InViewAnimation
-                key={index}
-                animation={index % 2 === 0 ? "fade-in-left" : "fade-in-right"}
-                delay={0.2}
-                className="relative"
-              >
-                <div className="flex flex-col md:flex-row items-start mb-16 last:mb-0">
-                  {/* Timeline Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-8 h-8 bg-white rounded-full border-4 border-softepy-gold transform -translate-x-1/2 z-10" />
-                  
-                  {/* Content Box */}
-                  <div 
-                    className={`ml-12 md:ml-0 md:w-1/2 ${
-                      index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'
-                    }`}
-                  >
-                    <div className="luxury-card p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
-                      <div className={`flex items-center gap-4 mb-4 ${
-                        index % 2 === 0 ? 'md:flex-row-reverse' : 'flex-row'
-                      }`}>
-                        <span className="text-4xl font-display text-softepy-gold font-bold">
-                          {step.step}
-                        </span>
-                        <h3 className="text-2xl font-bold">{step.title}</h3>
+            <div className="space-y-16 relative">
+              {[
+                {
+                  step: "01",
+                  title: "Initial Inquiry",
+                  description: "Fill out our franchise application form with your details and business expectations."
+                },
+                {
+                  step: "02",
+                  title: "Consultation",
+                  description: "Meet with our franchise team to discuss opportunities, investment, and answer your questions."
+                },
+                {
+                  step: "03",
+                  title: "Location Assessment",
+                  description: "We'll help you evaluate potential locations to maximize visibility and foot traffic."
+                },
+                {
+                  step: "04",
+                  title: "Agreement & Payment",
+                  description: "Sign the franchise agreement and make the initial investment payment."
+                },
+                {
+                  step: "05",
+                  title: "Setup & Installation",
+                  description: "Our team handles the delivery, installation, and testing of your vending machine."
+                },
+                {
+                  step: "06",
+                  title: "Training & Launch",
+                  description: "Receive comprehensive training on machine operations, maintenance, and business strategies."
+                }
+              ].map((step, index) => (
+                <InViewAnimation key={index} animation={index % 2 === 0 ? "fade-in-left" : "fade-in-right"} delay={0.1 * index}>
+                  <div className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8`}>
+                    <div className="md:w-1/2 text-center md:text-right flex-1">
+                      {index % 2 === 0 ? (
+                        <div className={`p-6 luxury-card ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
+                          <span className="text-5xl font-bold text-softepy-gold">{step.step}</span>
+                          <h3 className="text-2xl font-bold mt-4 mb-3">{step.title}</h3>
+                          <p className="text-gray-600">{step.description}</p>
+                        </div>
+                      ) : null}
+                    </div>
+                    
+                    <div className="relative flex items-center justify-center z-10">
+                      <div className="w-16 h-16 rounded-full bg-white border-4 border-softepy-gold flex items-center justify-center text-xl font-bold">
+                        {step.step}
                       </div>
-                      <p className="text-gray-600">{step.description}</p>
+                    </div>
+                    
+                    <div className="md:w-1/2 text-center md:text-left flex-1">
+                      {index % 2 !== 0 ? (
+                        <div className={`p-6 luxury-card ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
+                          <span className="text-5xl font-bold text-softepy-gold">{step.step}</span>
+                          <h3 className="text-2xl font-bold mt-4 mb-3">{step.title}</h3>
+                          <p className="text-gray-600">{step.description}</p>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
-                </div>
-              </InViewAnimation>
-            ))}
+                </InViewAnimation>
+              ))}
+            </div>
           </div>
         </div>
       </section>

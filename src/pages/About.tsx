@@ -1,7 +1,7 @@
 
 import React from "react";
 import InViewAnimation from "@/components/ui/InViewAnimation";
-import { Package, Award } from "lucide-react";
+import { Package, Award, IceCreamBowl } from "lucide-react";
 
 const About = () => {
   return (
@@ -132,7 +132,7 @@ const About = () => {
                 description: "We use only premium ingredients and maintain the highest standards in our machines and products."
               },
               {
-                icon: <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-softepy-gold"><path d="M17 18a5 5 0 0 0-10 0"></path><line x1="12" y1="6" x2="12" y2="14"></line><circle cx="12" cy="18" r="5"></circle><path d="M12 6a5 5 0 0 1 5 5"></path></svg>,
+                icon: <IceCreamBowl size={36} className="text-softepy-gold" />,
                 title: "Innovation First",
                 description: "We continuously push the boundaries of what's possible in automated food service."
               },

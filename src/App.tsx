@@ -16,7 +16,6 @@ import NotFound from "./pages/NotFound";
 // Layout Components
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import WhatsAppButton from "./components/layout/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -40,7 +39,6 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
-          <WhatsAppButton />
         </div>
       </BrowserRouter>
     </TooltipProvider>
