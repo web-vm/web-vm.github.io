@@ -1,0 +1,449 @@
+.entry-page {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Grid 1 ===== */
+.grid-1 {
+  background-color: olive;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.company-name {
+  font-family: "Palatino Linotype", serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: slideDown 1s ease-in-out forwards;
+}
+.text-part.black { color: black; }
+.text-part.white { color: white; }
+
+.tagline {
+  margin-top: 10px;
+  font-family: serif;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 300;
+  animation: slideUp 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== Grid 2 - Puzzle Animation ===== */
+.grid-2 {
+  background-color: black;
+  padding: 40px;
+  opacity: 1;
+  transform: none;
+}
+/* === Puzzle Animation === */
+.puzzle-letter {
+  opacity: 0;
+  display: inline-block;
+  animation: letterFade 0.8s forwards;
+}
+
+.puzzle-letter.dir-0 { animation-name: slideFromTop; }
+.puzzle-letter.dir-1 { animation-name: slideFromLeft; }
+.puzzle-letter.dir-2 { animation-name: slideFromRight; }
+.puzzle-letter.dir-3 { animation-name: slideFromBottom; }
+
+@keyframes slideFromTop {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideFromLeft {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideFromRight {
+  0% { transform: translateX(50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideFromBottom {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+
+
+.about-heading {
+  font-family: 'Futura', sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #d4af37;
+  margin: 0;
+  padding-top: 20px;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Futura', sans-serif;
+  font-size: 1.05rem;
+  color: #d4af37;
+  line-height: 1.6;
+  word-spacing: 1.5px;
+  letter-spacing: 0.3px;
+  margin-top: 30px;
+}
+
+.puzzle {
+  opacity: 0;
+  animation: mergeToCenter 1s ease forwards;
+}
+
+.puzzle.top { animation-delay: 0.2s; transform: translateY(-100px); }
+.puzzle.left { animation-delay: 0.4s; transform: translateX(-100px); }
+.puzzle.right { animation-delay: 0.6s; transform: translateX(100px); }
+.puzzle.bottom { animation-delay: 0.8s; transform: translateY(100px); }
+
+@keyframes mergeToCenter {
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+/* ===== Grid 3 ===== */
+.grid-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 80px 40px;
+  background-image: url('../assets/grid3bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 600px;
+}
+
+.grid-card {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 20px;
+  font-family: 'Futura', sans-serif;
+  position: relative;
+  animation: fadeIn 1s ease forwards;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  
+}
+
+
+.grid4 {
+  background-color: rgba(255, 255, 255, 0.85); 
+}
+
+.grid5 {
+  background-color: rgba(255, 255, 255, 0.85); 
+}
+
+.grid-desc {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  background: linear-gradient(145deg, #e34c26, #c13d1a);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.2),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform: scale(1);
+}
+
+.read-more:hover {
+  transform: scale(1.1);
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.6),
+    inset -3px -3px 5px rgba(255, 255, 255, 0.1),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==== Rectangular, Embossed Logo Box ==== */
+.logo-box {
+  width: 300px;
+  height: 160px;
+  border-radius: 10px;
+  margin: -90px auto 20px auto;
+  border: 4px double #000;
+  background-color: white;
+  box-shadow:
+    inset -3px -3px 7px rgba(255, 255, 255, 0.7),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+
+  /* Glow + Flicker combo */
+  animation: glowPulse 2.5s ease-in-out infinite alternate;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.logo-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ⬅ Grid 4: fills box, may crop */
+}
+
+.logo-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* ⬅ Grid 5: stretches to fit exactly */
+}
+
+.logo-box:hover {
+  transform: perspective(600px) rotateY(6deg) rotateX(4deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.logo-box::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+  transform: rotate(40deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.logo-box:hover::after {
+  animation: shine 0.75s forwards;
+  opacity: 1;
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+
+.blue-box {
+  background-color: rgba(173, 216, 230, 1); /* solid light blue */
+}
+
+.orange-box {
+  background-color: rgba(255, 200, 150, 1); /* solid light orange */
+}
+
+/* Slide animations */
+.animate-slide-left {
+  animation: slideInFromRight 1s ease forwards;
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+.animate-slide-right {
+  animation: slideInFromLeft 1s ease forwards;
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+@keyframes slideInFromRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Grid 6 - Footer ===== */
+.grid-6 {
+  background-color: olive;
+  padding: 20px 30px;
+  font-family: 'Futura', sans-serif;
+  color: white;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
+.footer-left, .footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.footer-left {
+  justify-content: flex-start;
+  padding-left: 10%;
+}
+
+.footer-right {
+  justify-content: flex-end;
+  padding-right: 10%;
+}
+
+.footer-icon {
+  font-size: 1.6rem;
+}
+
+.footer-text {
+  font-weight: bold;
+  color: black;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  margin-top: 10px;
+}
+/* === Footer Text Animations === */
+
+.slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fade-in-top {
+  animation: fadeInTop 1s ease-out forwards;
+  transform: translateY(-30px);
+  opacity: 0;
+  margin-top: 10px;
+}
+
+@keyframes fadeInTop {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* ==== Scroll-triggered animation === */
+.animate-section {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.animate-on-scroll {
+  opacity: 1;
+}
+
+.animate-on-scroll .puzzle {
+  animation: mergeToCenter 1s ease forwards;
+}
+
+/* Slide from screen edges (grid4 and grid5) */
+.slide-from-right {
+  transform: translateX(150vw);
+  opacity: 0;
+  transition: all 1.5s ease;
+}
+.animate-on-scroll .slide-from-right {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-from-left {
+  transform: translateX(-150vw);
+  opacity: 0;
+  transition: all 1.5s ease;
+}
+.animate-on-scroll .slide-from-left {
+  transform: translateX(0);
+  opacity: 1;
+}
